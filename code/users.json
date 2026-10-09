@@ -1,0 +1,30 @@
+{
+  "admin": {
+    "password": "scrypt:32768:8:1$UUDLxPzxVS6TTls6$3f373ed67e3ecfc3925dcd265a418e9b7e069eed8cf399f8c03c35b74d65adcde711a77deedf9c95cc16431aee6a42f91224f01516b59aa600e4d66e345fea68",
+    "phone": "9999999999"
+  },
+  "doctor": {
+    "password": "scrypt:32768:8:1$Vy0yfGUuH3Ip5TUT$b05bec8b813b34b934db5a133716918dca74997e9a096b2b3da44f85679a05796e49eb3b8759800adb0ebdf45ac5e2d2385b1e407a5333a9aa7e14c0a291e1e6",
+    "phone": "8888888888"
+  },
+  "Priya": {
+    "password": "scrypt:32768:8:1$opFJANDbLd9OHAdr$26cb2b37500ef239a07501b8708cafd8e9b685e0ba626c64195c425ebb2af29d24049230622bfa886c9c8ea11a3fda73d70b31799b44317c6b01e301827255c9",
+    "phone": "9895706064"
+  },
+  "Anu": {
+    "password": "scrypt:32768:8:1$jPDoH68ZlEagb8JV$7dd9dbf5b9de72e29152f02f3730c4fd67d9927b480807444419c124d4ce473817bfc98bef6bc404d1ecdc967abf192e7ffd457eaef0abfde8d7d69155ec981b",
+    "phone": "1234567890"
+  },
+  "Anna": {
+    "password": "scrypt:32768:8:1$c6lIezgQvLEhbWGw$64e1acec249c3f7a1eebf6e553cdd4f0163e007dcbcd2b3c62f8a43c1714adcb914ce5d85800711b4590f65d6f30b0d8210e88798b63b40a7c2482aff7db0c35",
+    "phone": "1234567835"
+  },
+  "Anuu": {
+    "password": "scrypt:32768:8:1$hGgH7kaQP31ks2iU$2c0513cd9b8856f7d5ccfd05b4677c68cb6d8bcdff7799f5ef24a50aec9aa1f353e229fa28e180a11f60c2df4bd0ded3872d67875b94458122f949dfe1021233",
+    "phone": "1234567899"
+  },
+  "Sani": {
+    "password": "scrypt:32768:8:1$2AGGzrIEDFrq1W8x$584d41399a3e843077b5b59d1ab6e78a43c44ad8fd80ec67271e2845e7d2ea95827200928580c7065df4b098e41d7a7f65dfd4bd88c0478f13cf28957fef94d8",
+    "phone": "6789356482"
+  }
+}

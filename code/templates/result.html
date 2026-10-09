@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prediction Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif; background: #f8fafc; margin: 0; padding: 30px;
+    }
+    .container {
+      max-width: 1100px; margin: 0 auto; background: white; border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); padding: 28px;
+    }
+    .header { display: flex; justify-content: space-between; align-items: center; }
+    .header a { text-decoration: none; color: #2563eb; font-weight: 600; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+    .card {
+      border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; background: #f8fafc;
+    }
+    .prob { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #e2e8f0; }
+    img { max-width: 100%; border-radius: 10px; border: 1px solid #e2e8f0; }
+    .risk { font-weight: 700; }
+    .risk-low { color: #166534; }
+    .risk-moderate { color: #b45309; }
+    .risk-high { color: #b91c1c; }
+    ul { margin: 8px 0 0 18px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Prediction Result</h2>
+      <a href="{{ url_for('upload') }}">Back to upload</a>
+    </div>
+
+    <div class="card">
+      <h3>{{ result['predicted_class'] }} - {{ result['info']['full_name'] }}</h3>
+      <p><strong>Confidence:</strong> {{ result['confidence_pct'] }}%</p>
+      <p><strong>Risk level:</strong> <span class="risk {{ result['info']['risk_class'] }}">{{ result['info']['risk_level'] }}</span></p>
+      <p>{{ result['info']['description'] }}</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Original image</h3>
+        <img src="data:image/png;base64,{{ result['images']['original'] }}" alt="Original lesion image">
+      </div>
+      <div class="card">
+        <h3>Grad-CAM overlay</h3>
+        <img src="data:image/png;base64,{{ result['images']['overlay'] }}" alt="Grad-CAM overlay">
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Symptoms</h3>
+        <ul>
+          {% for item in result['info']['symptoms'] %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Next steps</h3>
+        <ul>
+          {% for item in result['info']['next_steps'] %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <h3>Class probabilities</h3>
+      {% for item in result['all_probs'] %}
+        <div class="prob">
+          <span>{{ item['name'] }}</span>
+          <span>{{ item['pct'] }}%</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

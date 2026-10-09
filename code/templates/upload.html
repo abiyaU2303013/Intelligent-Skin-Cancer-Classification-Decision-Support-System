@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Image</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif; background: #f8fafc; margin: 0; padding: 32px;
+    }
+    .wrap {
+      max-width: 700px; margin: 40px auto; background: white; border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08); padding: 30px;
+    }
+    h2 { margin-top: 0; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; }
+    .logout { text-decoration: none; color: #b91c1c; font-weight: 600; }
+    label { display: block; margin-top: 16px; font-weight: 600; }
+    input[type=file] {
+      width: 100%; margin-top: 10px; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;
+      background: #f8fafc;
+    }
+    button {
+      margin-top: 18px; padding: 12px 18px; border: none; border-radius: 8px; background: #2563eb;
+      color: white; font-size: 15px; cursor: pointer;
+    }
+    .messages {
+      margin-top: 12px; color: #b91c1c; font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <h2>Skin Lesion Screening</h2>
+      <a class="logout" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <div>{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <p>Welcome, <strong>{{ session.get('username', 'user') }}</strong>.</p>
+
+    <form method="post" enctype="multipart/form-data">
+      <label for="image">Choose a skin lesion image</label>
+      <input id="image" name="image" type="file" accept=".jpg,.jpeg,.png,.bmp" required>
+      <button type="submit">Analyze Image</button>
+    </form>
+  </div>
+</body>
+</html>

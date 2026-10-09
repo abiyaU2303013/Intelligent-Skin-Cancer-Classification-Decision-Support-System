@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skin Lesion Screening Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f1f5f9, #dbeafe);
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+      width: min(420px, 90vw);
+      padding: 32px 28px;
+    }
+    h2 { margin-top: 0; text-align: center; }
+    label { display: block; margin-top: 14px; font-weight: 600; }
+    input {
+      width: 100%; box-sizing: border-box; margin-top: 8px; padding: 12px;
+      border: 1px solid #cbd5e1; border-radius: 8px; font-size: 15px;
+    }
+    button {
+      margin-top: 22px; width: 100%; background: #2563eb; color: white;
+      border: none; border-radius: 8px; padding: 12px; font-size: 16px; cursor: pointer;
+    }
+    .messages {
+      margin-top: 12px; color: #b91c1c; font-size: 14px;
+    }
+    .hint { color: #475569; margin-top: 16px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Skin Lesion Screening</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <div>{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="hint">
+      Demo accounts: admin / admin123<br>
+      doctor / derma2026
+    </div>
+  </div>
+</body>
+</html>

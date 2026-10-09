@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+models/
+results/
+HAM10000_images_part_1/
+HAM10000_images_part_2/
+Final_Test/
+testing_images/
+hmnist_28_28_L.csv
+hmnist_28_28_RGB.csv
+hmnist_8_8_L.csv
+hmnist_8_8_RGB.csv
